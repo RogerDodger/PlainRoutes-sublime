@@ -1,0 +1,33 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: Routes
+scopeName: text.routes
+fileTypes: [ "routes" ]
+uuid: c4dd1479-1f56-48db-bca2-9cdf09075536
+
+patterns:
+-
+    match: |-
+        (?x) \#[\D\d]*
+    name: comment.line.number-sign.routes
+-
+    match: |-
+        (?x) / [^#\s]*
+    name: string.unquoted.path.routes
+-
+    match: ->
+    name: punctuation.definition.arrow.routes
+-
+    match: |-
+        (?x) ([\w\-:]+)? \. (\w+)?
+    captures:
+        "1": { name: support.function.routes }
+        "2": { name: support.function.routes }
+-
+    match: |-
+        (?x) \( ([^)]+) \)
+    captures:
+        "1": { name: string.unquoted.name.routes }
+-
+    match: ANY|GET|POST|PUT|PATCH|DELETE
+    name: keyword.operator.routes
